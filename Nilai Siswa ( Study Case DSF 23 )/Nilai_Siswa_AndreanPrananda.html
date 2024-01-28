@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penilaian Siswa</title>
+</head>
+<body>
+
+    <h1>Nilai Siswa</h1>
+
+    <label for="nilaiInput">Masukkan nilai siswa:</label>
+    <input type="number" id="nilaiInput" placeholder="Contoh: 80">
+    <button onclick="hitungNilai()">Hitung Nilai</button>
+
+    <div id="output"></div>
+
+    <script>
+        function hitungNilai() {
+            // Mendapatkan nilai dari input text box
+            var nilaiSiswa = document.getElementById('nilaiInput').value;
+
+            // Konversi input menjadi bilangan bulat
+            var nilaiAngka = parseInt(nilaiSiswa);
+
+            // Menentukan nilai huruf
+            var nilaiHuruf = '';
+            if (nilaiAngka >= 85 && nilaiAngka <= 100) {
+                nilaiHuruf = 'A';
+            } else if (nilaiAngka >= 75 && nilaiAngka <= 84) {
+                nilaiHuruf = 'B';
+            } else if (nilaiAngka >= 60 && nilaiAngka <= 74) {
+                nilaiHuruf = 'C';
+            } else {
+                nilaiHuruf = 'D';
+            }
+
+            // Menentukan genap atau ganjil
+            var jenisBilangan = (nilaiAngka % 2 === 0) ? 'bilangan genap' : 'bilangan ganjil';
+
+            // Menampilkan hasil
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '<p>Nilai angka: ' + nilaiAngka + '</p>' +
+                                 '<p>Nilai huruf: ' + nilaiHuruf + '</p>' +
+                                 '<p>' + jenisBilangan + '</p>';
+        }
+    </script>
+
+</body>
+</html>
